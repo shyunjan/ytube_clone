@@ -1,3 +1,9 @@
+/**
+ * tailwind.config.ts는 TailwindCSS 4 버전부터는 더 이상 사용되지 않는다.
+ * https://tailwindcss.com/docs/upgrade-guide#using-a-javascript-config-file
+ *
+ * 아래 코드들은 모두 app.css로 옮기면서 리팩토링한 다음, 이 tailwind.config.ts는 삭제할 예정
+ */
 import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 import { createRequire } from 'node:module';

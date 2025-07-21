@@ -1,1 +1,33 @@
 @import 'tailwindcss';
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  a {
+    @apply no-underline;
+  }
+}
+
+/** 
+ * Dark Mode를 직접 컨트롤하기 위한 코드 
+ * https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually 
+**/
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark-main-bg: #0f0f0f;
+  --color-dark-main-text: #f1f1f1;
+  --color-tag-bg: #272727;
+}
+
+@layer components {
+  .main-menu {
+    @apply mx-1 block cursor-pointer rounded-md px-3 py-1 text-center hover:bg-orange-400;
+  }
+
+  .tag {
+    @apply dark:text-dark-main-text bg-tag-bg mx-[0.35rem] rounded-md border-solid px-3 py-1 text-sm font-thin whitespace-nowrap;
+  }
+}
