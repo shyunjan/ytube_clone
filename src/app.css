@@ -1,13 +1,13 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 /** 
  * Dark Mode를 직접 컨트롤하기 위한 코드 
  * https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually 
 **/
-// @custom-variant dark (&:where(.dark, .dark *));
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 :root {
   --radius: 0.625rem;
