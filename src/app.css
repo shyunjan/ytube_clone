@@ -5,6 +5,8 @@
 /** 
  * Dark Mode를 직접 컨트롤하기 위한 코드 
  * https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually 
+ * @custom-variant 지시자는 tailwindCSS의 class prefix를 만든다: 아래 경우는 dark:... 형태의 class에만 아래 규칙 - 
+ * (&:where(.dark, .dark *))이 적용되도록 만들어준다
 **/
 @custom-variant dark (&:where(.dark, .dark *));
 /* @custom-variant dark (&:is(.dark *)); */
