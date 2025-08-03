@@ -1,3 +1,3 @@
-import ThemeController from './theme-controller.svelte';
+import ThemeSwitch from './theme-switch.svelte';
 
-export { ThemeController };
+export { ThemeSwitch };

@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
   import { ModeWatcher, setMode } from 'mode-watcher';
-  import { ThemeController } from '$lib/components/ui/theme-controller';
+  import { ThemeSwitch } from '$lib/components/ui/theme-controller';
 
   let { children } = $props();
 
@@ -9,6 +9,6 @@
 </script>
 
 <ModeWatcher track={false} defaultMode={'dark'} />
-<ThemeController />
+<ThemeSwitch />
 
 {@render children()}

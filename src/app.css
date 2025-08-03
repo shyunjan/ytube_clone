@@ -1,6 +1,14 @@
 @import 'tailwindcss';
-
 @import 'tw-animate-css';
+/* @import '%sveltekit.assets%/css/fontAwesome5.css'; 이 import문은 에러 */
+/* @import '../static/css/fontAwesome5.css'; 이 import문은 정상 작동하지만 현재는 아래 코드로 변경해서 사용중 */
+@import '$lib/css/fontAwesome5.css';
+@plugin 'daisyui' {
+  themes:
+    dark --default,
+    light --preferslight;
+}
+/* @plugin 'tailwind-fontawesome'; */
 
 /** 
  * Dark Mode를 직접 컨트롤하기 위한 코드 
@@ -44,6 +52,7 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+  --fa-display: flex;
 }
 
 .dark {
@@ -140,4 +149,24 @@
   /* .tag {
     @apply dark:text-primary bg-card mx-[0.35rem] rounded-md border-solid px-3 py-1 text-sm font-thin whitespace-nowrap;
   } */
+
+  /* .toggle-vertical {
+    @apply rotate-90;
+  } */
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* daisyUI class를 사용하여 theme-switch를 작성한 경우 */
+  .toggle {
+    &:is(#theme-switch) {
+      &::before {
+        --radius-selector: 1rem;
+        @apply z-10 bg-white;
+      }
+    }
+  }
 }
