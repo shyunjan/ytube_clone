@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
   import { ModeWatcher, setMode } from 'mode-watcher';
-  import { ThemeSwitch } from '$lib/components/ui/theme-controller';
+  import { ThemeSwitch } from '$lib/components/ui/theme-switch';
 
   let { children } = $props();
 

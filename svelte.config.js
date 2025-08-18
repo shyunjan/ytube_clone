@@ -10,7 +10,12 @@ const config = {
   vitePlugin: {
     onwarn: (warning, defaultHandler) => {
       const warningCode = warning.code.toLowerCase();
-      if (warningCode === 'a11y-no-noninteractive-tabindex' || 'a11y-missing-attribute') return;
+      if (
+        warningCode === 'a11y-no-noninteractive-tabindex' ||
+        'a11y-missing-attribute' ||
+        'a11y_no_static_element_interactions'
+      )
+        return;
       console.log('svelte:warnings:%s', JSON.stringify(warning));
       defaultHandler(warning);
     },
