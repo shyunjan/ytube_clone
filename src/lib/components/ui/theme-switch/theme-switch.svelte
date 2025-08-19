@@ -22,6 +22,7 @@
   }
 </script>
 
+<!-- shadcn component를 사용해서 작성한 경우 -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="fixed top-1/2 right-0 inline-flex rotate-90 items-center justify-center space-x-2">
   <Switch
@@ -38,7 +39,7 @@
     onkeypress={setTheme}></i>
 </div>
 
-<!-- daisyUI를 사용해서 작성한 경우 -->
+<!-- daisyUI class를 사용해서 작성한 경우 -->
 <!-- <button
   class="fixed top-1/2 right-0.5 inline-flex h-9 rotate-90 items-center justify-center overflow-hidden rounded-2xl bg-gray-700"
   onclick={setTheme}

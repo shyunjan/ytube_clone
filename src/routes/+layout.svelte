@@ -5,7 +5,7 @@
 
   let { children } = $props();
 
-  setMode('dark');
+  setMode('dark'); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
 </script>
 
 <ModeWatcher track={false} defaultMode={'dark'} />

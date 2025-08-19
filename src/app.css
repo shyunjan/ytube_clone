@@ -161,12 +161,12 @@
   }
 
   /* daisyUI class를 사용하여 theme-switch를 작성한 경우 */
-  .toggle {
+  /* .toggle {
     &:is(#theme-switch) {
       &::before {
         --radius-selector: 1rem;
         @apply z-10 bg-white;
       }
     }
-  }
+  } */
 }
