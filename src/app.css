@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 /* @import '%sveltekit.assets%/css/fontAwesome5.css'; 이 import문은 에러 */
-/* @import '../static/css/fontAwesome5.css'; 이 import문은 정상 작동하지만 현재는 아래 코드로 변경해서 사용중 */
-@import '$lib/css/fontAwesome5.css';
+/* @import '../static/css/fontAwesome5Pro.css'; */ /* 이 import문은 정상 작동하지만 현재는 아래 코드로 변경해서 사용중 */
+/* @import '$lib/css/fontAwesome5Pro.css'; */
 @plugin 'daisyui' {
   themes:
     dark --default,
