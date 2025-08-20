@@ -1,14 +1,12 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-/* @import '%sveltekit.assets%/css/fontAwesome5.css'; 이 import문은 에러 */
-/* @import '../static/css/fontAwesome5Pro.css'; */ /* 이 import문은 정상 작동하지만 현재는 아래 코드로 변경해서 사용중 */
+@import "tailwindcss";
+@import "tw-animate-css";
+/* @import '../static/css/fontAwesome5Pro.css'; */
 /* @import '$lib/css/fontAwesome5Pro.css'; */
 @plugin 'daisyui' {
   themes:
     dark --default,
     light --preferslight;
 }
-/* @plugin 'tailwind-fontawesome'; */
 
 /** 
  * Dark Mode를 직접 컨트롤하기 위한 코드 
@@ -29,7 +27,8 @@
   --popover-foreground: oklch(0.141 0.005 285.823);
   --primary: oklch(0.21 0.006 285.885);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
+  /* --secondary: oklch(0.967 0.001 286.375); */
+  --secondary: var(--color-zinc-200);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -52,7 +51,6 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
-  --fa-display: flex;
 }
 
 .dark {
