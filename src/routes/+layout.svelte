@@ -1,14 +1,18 @@
 <script lang="ts">
-  import '../app.css';
-  import { ModeWatcher, setMode } from 'mode-watcher';
-  import { ThemeSwitch } from '$lib/components/ui/theme-switch';
+  import "../app.css";
+  import { ModeWatcher, setMode } from "mode-watcher";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
 
   let { children } = $props();
 
-  setMode('dark'); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
+  setMode("dark"); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
 </script>
 
-<ModeWatcher track={false} defaultMode={'dark'} />
+<ModeWatcher track={false} defaultMode={"dark"} />
 <ThemeSwitch />
 
-{@render children()}
+<!-- Main -->
+<main class="flex h-full w-full flex-wrap">
+  {@render children()}
+</main>
+<!-- /Main -->

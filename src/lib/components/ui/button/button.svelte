@@ -15,8 +15,7 @@
         // secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary-foreground/20",
-        // ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/80",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
