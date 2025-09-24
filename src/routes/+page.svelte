@@ -1,22 +1,35 @@
 <script lang="ts">
-  // import "iconify-icon";
-  // import Icon from '@iconify/svelte';
-  import * as Sidebar from "$lib/components/ui/sidebar";
+  import "iconify-icon";
+  // import Icon from "@iconify/svelte";
+  // import * as Sidebar from "$lib/components/ui/sidebar";
   import AppSidebar from "$lib/components/ui/app-sidebar.svelte";
   // import * as Sheet from "$lib/components/ui/sheet";
   import { Button } from "$lib/components/ui/button";
 
+  const tabletWidth = 1280;
   let sidebarMobile = $state(false);
+
+  function onWindowResized() {
+    if (window.innerWidth > tabletWidth && sidebarMobile) sidebarMobile = false;
+  }
+
+  function openSidebarMobile() {
+    if (sidebarMobile) sidebarMobile = false;
+    else if (window.innerWidth <= tabletWidth) {
+      console.debug(`OPEN!`);
+      sidebarMobile = true;
+    }
+  }
 </script>
 
+<svelte:window onresize={onWindowResized} />
+
 <!-- Sidebar (for Mobile) -->
-<div class="absolute top-0 left-0">
-  <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
+<div class="absolute top-0 left-0 h-full {sidebarMobile ? '' : 'hidden'} bg-(--background)">
+  <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
     <AppSidebar bind:sidebarMobile />
-    <!-- <Sheet.Content side="left"  >
-      <div>Testing...</div>
-    </Sheet.Content> -->
-  </Sidebar.Provider>
+    </Sidebar.Provider> -->
+  <AppSidebar bind:sidebarMobile />
 </div>
 <!--/Sidebar (for Mobile) -->
 <!-- Header 영역 -->
@@ -24,7 +37,7 @@
   <Button
     variant="ghost"
     class="flex-center size-10 rounded-full p-2 hover:cursor-pointer"
-    onclick={() => (sidebarMobile = !sidebarMobile)}>
+    onclick={openSidebarMobile}>
     <!-- <i class="fa-solid fa-bars text-xl"></i> -->
     <!-- <Icon icon="iconamoon:menu-burger-horizontal-thin" class="size-6" stroke-width="1.17" /> -->
     <iconify-icon
@@ -47,3 +60,6 @@
   </div>
 </header>
 <!-- /Header -->
+<!-- Contents 영역 -->
+<div></div>
+<!-- /Contents -->
