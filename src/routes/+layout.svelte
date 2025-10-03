@@ -12,7 +12,7 @@
 <ThemeSwitch />
 
 <!-- Main -->
-<main class="flex h-full w-full flex-wrap">
+<main class="flex h-full w-full flex-col justify-start">
   {@render children()}
 </main>
 <!-- /Main -->

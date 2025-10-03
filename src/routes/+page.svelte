@@ -28,12 +28,13 @@
 <div class="absolute top-0 left-0 h-full {sidebarMobile ? '' : 'hidden'} bg-(--background)">
   <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
     <AppSidebar bind:sidebarMobile />
-    </Sidebar.Provider> -->
+  </Sidebar.Provider> -->
   <AppSidebar bind:sidebarMobile />
 </div>
 <!--/Sidebar (for Mobile) -->
 <!-- Header 영역 -->
-<header class="flex h-14 w-full items-center justify-between px-3">
+<header class="flex h-14 w-full items-center justify-between px-4">
+  <!-- Menu Button -->
   <Button
     variant="ghost"
     class="flex-center size-10 rounded-full p-2 hover:cursor-pointer"
@@ -46,6 +47,7 @@
       height="24"
       style="stroke-width: 1.17px"></iconify-icon>
   </Button>
+  <!-- /Menu Button -->
   <img src="/logos/Youtube-logo-with-flat-design-edited.png" alt="logo" class="mx-2 h-8 w-30" />
   <div class="flex-center">
     <Button variant="secondary" class="rounded-full pl-2 hover:cursor-pointer"
@@ -61,5 +63,21 @@
 </header>
 <!-- /Header -->
 <!-- Contents 영역 -->
-<div></div>
+<div class="flex flex-1 justify-start">
+  <!-- Sidebar (for only icons) -->
+  <div class="flex w-18 flex-col items-center justify-start p-1">
+    <!-- Home Button -->
+    <Button
+      variant="ghost"
+      class="flex-center h-18 w-16 flex-col gap-1.5 rounded-xl p-1 hover:cursor-pointer">
+      <iconify-icon icon="entypo:home" width="24" height="24"></iconify-icon>
+      <span class="text-tiny">홈</span>
+    </Button>
+    <!-- /Home Button -->
+  </div>
+  <!-- /Sidebar (for only icons) -->
+  <!-- Video List -->
+  <div class="flex flex-1 bg-green-800"></div>
+  <!-- /Video List -->
+</div>
 <!-- /Contents -->

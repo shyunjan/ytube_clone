@@ -29,6 +29,10 @@
   --breakpoint-lg: 32rem;
   --breakpoint-xl: 40rem;
   --breakpoint-2xl: 46rem; */
+  --text-tiny: 0.625rem;
+  --text-tiny--line-height: 0.875rem;
+  --text-tiny--letter-spacing: 0.125rem;
+  --text-tiny--font-weight: 500;
 }
 
 :root {
