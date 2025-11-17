@@ -18,7 +18,7 @@
   </Button>
   <Sidebar.Content class="max-w-full">Testing.....</Sidebar.Content>
   </Sidebar.Root> -->
-<div class="flex w-18 flex-col items-center p-1">
+<div class="flex w-18 flex-col items-center p-2">
   <Button
     variant="ghost"
     class="flex-center size-10 rounded-full p-2 hover:cursor-pointer"
@@ -29,5 +29,7 @@
       height="24"
       style="stroke-width: 1.17px"></iconify-icon>
   </Button>
-  <span>Mobile Sidebar</span>
+  <div class="mt-2 flex w-18 flex-col items-center justify-start p-2">
+    <span>M Sidebar</span>
+  </div>
 </div>

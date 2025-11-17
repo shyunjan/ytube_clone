@@ -35,8 +35,7 @@
 
 <!-- Main -->
 <main class="flex h-full w-full flex-col justify-start">
-  <!-- Sidebar (for Mobile) -->
-  <!-- <div class="flex w-18 flex-col items-center justify-start p-1"> -->
+  <!-- Mobile Sidebar -->
   <div
     class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-(--background)">
     <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
@@ -44,7 +43,7 @@
     </Sidebar.Provider> -->
     <AppSidebar bind:sidebarMobile />
   </div>
-  <!--/Sidebar (for Mobile) -->
+  <!--/Mobile Sidebar -->
   <!-- Header 영역 -->
   <header class="flex h-14 w-full items-center justify-between px-4">
     <!-- Menu Button -->
