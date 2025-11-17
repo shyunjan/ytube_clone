@@ -18,7 +18,7 @@
   </Button>
   <Sidebar.Content class="max-w-full">Testing.....</Sidebar.Content>
   </Sidebar.Root> -->
-<div class="px-3">
+<div class="flex w-18 flex-col items-center p-1">
   <Button
     variant="ghost"
     class="flex-center size-10 rounded-full p-2 hover:cursor-pointer"

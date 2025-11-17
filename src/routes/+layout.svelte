@@ -17,14 +17,15 @@
   }
 
   function openSidebar() {
-    if (window.innerWidth <= tabletWidth) {
-      sidebarMobile.visible = !sidebarMobile.visible;
-    } else {
-      sidebarDesktop.visible = !sidebarDesktop.visible;
-    }
+    if (window.innerWidth <= tabletWidth) sidebarMobile.visible = !sidebarMobile.visible;
+    else sidebarDesktop.visible = !sidebarDesktop.visible;
   }
 
   setMode("dark"); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
+
+  $effect(() => {
+    onWindowResized();
+  });
 </script>
 
 <svelte:window onresize={onWindowResized} />
@@ -35,6 +36,7 @@
 <!-- Main -->
 <main class="flex h-full w-full flex-col justify-start">
   <!-- Sidebar (for Mobile) -->
+  <!-- <div class="flex w-18 flex-col items-center justify-start p-1"> -->
   <div
     class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-(--background)">
     <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
@@ -75,7 +77,7 @@
   <!-- /Header -->
   <!-- Contents -->
   <div class="flex flex-1">
-    {#if (!sidebarDesktop.visible && !sidebarMobile.visible) || sidebarDesktop.windowWidth < tabletWidth}
+    {#if (!sidebarDesktop.visible && !sidebarMobile.visible) || sidebarDesktop.windowWidth <= tabletWidth}
       <!-- Sidebar (for only icons) -->
       <div class="flex w-18 flex-col items-center p-1">
         <!-- Home Button -->

@@ -1,1 +1,1 @@
-export const sidebarDesktop = $state({ visible: false, windowWidth: 0 });
+export const sidebarDesktop = $state({ visible: true, windowWidth: 0 });
