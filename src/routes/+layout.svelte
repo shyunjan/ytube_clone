@@ -24,7 +24,6 @@
     }
   }
 
-  onWindowResized();
   setMode("dark"); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
 </script>
 
@@ -90,9 +89,7 @@
       </div>
       <!-- /Sidebar (for only icons) -->
     {/if}
-    <div class="flex flex-1">
-      {@render children()}
-    </div>
+    {@render children()}
   </div>
   <!-- /Contents -->
 </main>
