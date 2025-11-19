@@ -1,11 +1,15 @@
 <script lang="ts">
   import "../app.css";
   import { ModeWatcher, setMode } from "mode-watcher";
-  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
-  // import * as Sidebar from "$lib/components/ui/sidebar";
-  import AppSidebar from "$lib/components/ui/app-sidebar.svelte";
   import { sidebarDesktop } from "../universal-state.svelte"; // 데스크탑용 sidebar는 특정 페이지에서만 on/off한다.
-  import { Button } from "$lib/components/ui/button";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
+  import AppSidebar from "$lib/components/ui/app-sidebar.svelte";
+  import { Button, buttonVariants } from "$lib/components/ui/button";
+  import * as Popover from "$lib/components/ui/popover";
+  import SquarePlayIcon from "@lucide/svelte/icons/square-play";
+  import PlusIcon from "@lucide/svelte/icons/plus";
+  import RadioIcon from "@lucide/svelte/icons/radio";
+  import SquarePenIcon from "@lucide/svelte/icons/square-pen";
 
   const tabletWidth = 1280;
   let { children } = $props();
@@ -47,10 +51,7 @@
   <!-- Header 영역 -->
   <header class="flex h-14 w-full items-center justify-between px-4">
     <!-- Menu Button -->
-    <Button
-      variant="ghost"
-      class="flex-center size-10 rounded-full p-2 hover:cursor-pointer"
-      onclick={openSidebar}>
+    <Button variant="ghost" class="flex-center size-10 rounded-full p-2" onclick={openSidebar}>
       <!-- <i class="fa-solid fa-bars text-xl"></i> -->
       <!-- <Icon icon="iconamoon:menu-burger-horizontal-thin" class="size-6" stroke-width="1.17" /> -->
       <iconify-icon
@@ -62,9 +63,24 @@
     <!-- /Menu Button -->
     <img src="/logos/Youtube-logo-with-flat-design-edited.png" alt="logo" class="mx-2 h-8 w-30" />
     <div class="flex-center">
-      <Button variant="secondary" class="rounded-full pl-2 hover:cursor-pointer"
-        ><iconify-icon icon="ph:plus-light" width="24" height="24"></iconify-icon>만들기</Button>
-      <Button variant="ghost" class="rounded-full p-2 hover:cursor-pointer">
+      <Popover.Root>
+        <Popover.Trigger
+          class={buttonVariants({
+            variant: "secondary",
+            class: "w-23 justify-start gap-1 rounded-full !pl-2",
+          })}>
+          <PlusIcon class="size-6" />만들기
+        </Popover.Trigger>
+        <Popover.Content class="w-50 px-0 py-2" align="start">
+          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
+            ><SquarePlayIcon class="size-5" />동영상 업로드</Button>
+          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
+            ><RadioIcon class="size-5" />라이브 스트리밍 시작</Button>
+          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
+            ><SquarePenIcon class="size-5" />게시물 작성</Button>
+        </Popover.Content>
+      </Popover.Root>
+      <Button variant="ghost" class="mx-1 rounded-full p-2">
         <iconify-icon icon="ion:notifications-outline" width="24" height="24" background="none"
         ></iconify-icon>
       </Button>
@@ -80,9 +96,7 @@
       <!-- Sidebar (for only icons) -->
       <div class="flex w-18 flex-col items-center p-1">
         <!-- Home Button -->
-        <Button
-          variant="ghost"
-          class="flex-center h-18 w-16 flex-col gap-1.5 rounded-xl p-1 hover:cursor-pointer">
+        <Button variant="ghost" class="flex-center h-18 w-16 flex-col gap-1.5 rounded-xl p-1">
           <iconify-icon icon="entypo:home" width="24" height="24"></iconify-icon>
           <span class="text-tiny">홈</span>
         </Button>
