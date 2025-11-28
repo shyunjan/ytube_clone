@@ -1,7 +1,6 @@
 <script lang="ts">
   import { sidebarDesktop } from "../universal-state.svelte";
   import "iconify-icon";
-  import { Button } from "$lib/components/ui/button";
 
   const tabletWidth = 1280;
 </script>

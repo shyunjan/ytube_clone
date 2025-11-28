@@ -41,7 +41,7 @@
 <main class="flex h-full w-full flex-col justify-start">
   <!-- Mobile Sidebar -->
   <div
-    class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-(--background)">
+    class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-background">
     <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
       <AppSidebar bind:sidebarMobile />
     </Sidebar.Provider> -->
@@ -67,17 +67,17 @@
         <Popover.Trigger
           class={buttonVariants({
             variant: "secondary",
-            class: "w-23 justify-start gap-1 rounded-full !pl-2",
+            class: "w-23 justify-start gap-1 rounded-full pl-2!",
           })}>
           <PlusIcon class="size-6" />만들기
         </Popover.Trigger>
         <Popover.Content class="w-50 px-0 py-2" align="start">
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
-            ><SquarePlayIcon class="size-5" />동영상 업로드</Button>
+            ><SquarePlayIcon class="size-5" /><span class="ml-2">동영상 업로드</span></Button>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
-            ><RadioIcon class="size-5" />라이브 스트리밍 시작</Button>
+            ><RadioIcon class="size-5" /><span class="ml-2">라이브 스트리밍 시작</span></Button>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
-            ><SquarePenIcon class="size-5" />게시물 작성</Button>
+            ><SquarePenIcon class="size-5" /><span class="ml-2">게시물 작성</span></Button>
         </Popover.Content>
       </Popover.Root>
       <Button variant="ghost" class="mx-1 rounded-full p-2">

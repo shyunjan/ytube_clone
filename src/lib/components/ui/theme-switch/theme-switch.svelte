@@ -31,7 +31,7 @@
     bind:checked={() => themeLight, setTheme} />
   <button
     onclick={setTheme}
-    class="absolute left-2 size-5 scale-100 rotate-90 opacity-100 !transition-[rotate] dark:scale-0 dark:rotate-0">
+    class="absolute left-2 size-5 scale-100 rotate-90 opacity-100 transition-[rotate]! dark:scale-0 dark:rotate-0">
     <!-- <i class="fa-solid fa-moon absolute left-3 scale-100 rotate-90 text-yellow-400 opacity-100 !transition-[rotate] dark:scale-0 dark:rotate-0"</i> -->
     <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
       ><path
@@ -40,7 +40,7 @@
   </button>
   <button
     onclick={setTheme}
-    class="absolute right-2 size-5 scale-0 text-amber-500 opacity-100 !transition-[rotate] dark:scale-100 dark:-rotate-90">
+    class="absolute right-2 size-5 scale-0 text-amber-500 opacity-100 transition-[rotate]! dark:scale-100 dark:-rotate-90">
     <!-- <i class="fa-solid fa-sun absolute right-2 scale-0 text-amber-500 opacity-100 !transition-[rotate] dark:scale-100 dark:-rotate-90" ></i> -->
     <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
       ><path
