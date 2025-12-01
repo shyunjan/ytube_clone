@@ -40,8 +40,7 @@
 <!-- Main -->
 <main class="flex h-full w-full flex-col justify-start">
   <!-- Mobile Sidebar -->
-  <div
-    class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-background">
+  <div class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-background">
     <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
       <AppSidebar bind:sidebarMobile />
     </Sidebar.Provider> -->
@@ -73,8 +72,8 @@
         </Popover.Trigger>
         <Popover.Content class="w-50 px-0 py-2" align="start">
           <Popover.Close class="w-full">
-            <a href="/upload" class="hover:bg-primary/10 flex items-center pl-3 py-2">
-              <SquarePlayIcon class="size-5" /><span class="ml-4 text-sm">동영상 업로드</span>
+            <a href="/upload" class="hover:bg-primary/10 flex items-center py-2 pl-3">
+              <SquarePlayIcon class="size-5 " /> <span class="ml-4 text-sm">동영상 업로드</span>
             </a>
           </Popover.Close>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
