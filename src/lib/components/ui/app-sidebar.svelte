@@ -2,6 +2,8 @@
   // import * as Sidebar from "$lib/components/ui/sidebar";
   // import { Button, buttonVariants } from "$lib/components/ui/button";
   import { Button } from "$lib/components/ui/button";
+  import "iconify-icon";
+  
   let { sidebarMobile = $bindable({ visible: false }) } = $props();
 </script>
 

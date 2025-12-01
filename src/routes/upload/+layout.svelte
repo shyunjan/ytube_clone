@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { sidebarDesktop } from "../universal-state.svelte.js";
+  import { sidebarDesktop } from "src/universal-state.svelte";
   const tabletWidth = 1280;
+  let { children } = $props();
 </script>
 
 <!-- Main Contents -->
@@ -12,8 +13,6 @@
     </div>
     <!-- /Desktop Sidebar -->
   {/if}
-  <!-- Video List -->
-  <div class="flex flex-1 bg-green-800">video1, video2, video3 ... videoN</div>
-  <!-- /Video List -->
+  {@render children()}
 </div>
 <!-- /Main Contents -->

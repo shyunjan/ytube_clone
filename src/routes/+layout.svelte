@@ -72,8 +72,11 @@
           <PlusIcon class="size-6" />만들기
         </Popover.Trigger>
         <Popover.Content class="w-50 px-0 py-2" align="start">
-          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
-            ><SquarePlayIcon class="size-5" /><span class="ml-2">동영상 업로드</span></Button>
+          <Popover.Close class="w-full">
+            <a href="/upload" class="hover:bg-primary/10 flex items-center pl-3 py-2">
+              <SquarePlayIcon class="size-5" /><span class="ml-4 text-sm">동영상 업로드</span>
+            </a>
+          </Popover.Close>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
             ><RadioIcon class="size-5" /><span class="ml-2">라이브 스트리밍 시작</span></Button>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
