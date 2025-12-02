@@ -4,12 +4,11 @@
   import { sidebarDesktop } from "../universal-state.svelte"; // 데스크탑용 sidebar는 특정 페이지에서만 on/off한다.
   import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import AppSidebar from "$lib/components/ui/app-sidebar.svelte";
+  import MenuLogoButton from "$lib/components/ui/menu-logo-button.svelte";
   import { Button, buttonVariants } from "$lib/components/ui/button";
   import * as Popover from "$lib/components/ui/popover";
-  import SquarePlayIcon from "@lucide/svelte/icons/square-play";
-  import PlusIcon from "@lucide/svelte/icons/plus";
-  import RadioIcon from "@lucide/svelte/icons/radio";
-  import SquarePenIcon from "@lucide/svelte/icons/square-pen";
+  import { SquarePlayIcon, PlusIcon, RadioIcon, SquarePenIcon } from "@lucide/svelte/icons";
+  import "iconify-icon";
 
   const tabletWidth = 1280;
   let { children } = $props();
@@ -44,23 +43,12 @@
     <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
       <AppSidebar bind:sidebarMobile />
     </Sidebar.Provider> -->
-    <AppSidebar bind:sidebarMobile />
+    <AppSidebar {openSidebar} />
   </div>
   <!--/Mobile Sidebar -->
   <!-- Header 영역 -->
   <header class="flex h-14 w-full items-center justify-between px-4">
-    <!-- Menu Button -->
-    <Button variant="ghost" class="flex-center size-10 rounded-full p-2" onclick={openSidebar}>
-      <!-- <i class="fa-solid fa-bars text-xl"></i> -->
-      <!-- <Icon icon="iconamoon:menu-burger-horizontal-thin" class="size-6" stroke-width="1.17" /> -->
-      <iconify-icon
-        icon="iconamoon:menu-burger-horizontal-thin"
-        width="24"
-        height="24"
-        style="stroke-width: 1.17px"></iconify-icon>
-    </Button>
-    <!-- /Menu Button -->
-    <img src="/logos/Youtube-logo-with-flat-design-edited.png" alt="logo" class="mx-2 h-8 w-30" />
+    <MenuLogoButton {openSidebar} />
     <div class="flex-center">
       <Popover.Root>
         <Popover.Trigger
@@ -73,7 +61,7 @@
         <Popover.Content class="w-50 px-0 py-2" align="start">
           <Popover.Close class="w-full">
             <a href="/upload" class="hover:bg-primary/10 flex items-center py-2 pl-3">
-              <SquarePlayIcon class="size-5 " /> <span class="ml-4 text-sm">동영상 업로드</span>
+              <SquarePlayIcon class="size-5" /> <span class="ml-4 text-sm">동영상 업로드</span>
             </a>
           </Popover.Close>
           <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"

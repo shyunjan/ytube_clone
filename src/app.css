@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 /* @import '../static/css/fontAwesome5Pro.css'; */
 /* @import '$lib/css/fontAwesome5Pro.css'; */
-@plugin 'daisyui' {
+@plugin "daisyui" {
   themes:
     dark --default,
     light --preferslight;
@@ -33,6 +33,8 @@
   --text-tiny--line-height: 0.875rem;
   --text-tiny--letter-spacing: 0.125rem;
   --text-tiny--font-weight: 500;
+  --spacing-5\.5: 1.3rem;
+  --spacing-6\.5: 1.6rem;
 }
 
 :root {
