@@ -1,51 +1,101 @@
 <script lang="ts">
-  import '../app.css';
-  import SunIcon from '@lucide/svelte/icons/sun';
-  import MoonIcon from '@lucide/svelte/icons/moon';
-  import { ModeWatcher, setMode } from 'mode-watcher';
-  import { Switch } from '$lib/components/ui/switch';
-  import { Label } from '$lib/components/ui/label';
+  import "../app.css";
+  import { ModeWatcher, setMode } from "mode-watcher";
+  import { sidebarDesktop } from "../universal-state.svelte"; // 데스크탑용 sidebar는 특정 페이지에서만 on/off한다.
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
+  import AppSidebar from "$lib/components/ui/app-sidebar.svelte";
+  import MenuLogoButton from "$lib/components/ui/menu-logo-button.svelte";
+  import { Button, buttonVariants } from "$lib/components/ui/button";
+  import * as Popover from "$lib/components/ui/popover";
+  import { SquarePlayIcon, PlusIcon, RadioIcon, SquarePenIcon } from "@lucide/svelte/icons";
+  import "iconify-icon";
 
+  const tabletWidth = 1280;
   let { children } = $props();
-  let themeLight = $state(false);
+  let sidebarMobile = $state({ visible: false }); // 모바일용 sidebar는 layout에서 on/off한다. 그러므로 모든 페이지에 적용된다.
 
-  setMode('dark');
-
-  // $effect(() => {
-  //   tick().then(() => {
-  //     console.debug(`changing theme...`);
-  //     if (themeLight) setMode('light');
-  //     else setMode('dark');
-  //   });
-  // });
-
-  function setTheme() {
-    themeLight = !themeLight;
-    if (themeLight) setMode('light');
-    else setMode('dark');
+  function onWindowResized() {
+    sidebarMobile.visible = false;
+    sidebarDesktop.windowWidth = window.innerWidth;
   }
+
+  function openSidebar() {
+    if (window.innerWidth <= tabletWidth) sidebarMobile.visible = !sidebarMobile.visible;
+    else sidebarDesktop.visible = !sidebarDesktop.visible;
+  }
+
+  setMode("dark"); // TODO: 나중에 cookie등 저장소에서 가져온 정보로 theme를 setting한다
+
+  $effect(() => {
+    onWindowResized();
+  });
 </script>
 
-<ModeWatcher track={false} defaultMode={'dark'} />
+<svelte:window onresize={onWindowResized} />
 
-<!-- <Button onclick={toggleMode} variant="outline" size="icon">
-  <SunIcon
-    class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90" />
-  <MoonIcon
-    class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0" />
-  <span class="sr-only">Toggle theme</span>
-</Button> -->
-<div class="flex items-center space-x-2">
-  <Switch
-    id="theme-controller"
-    class="!bg-input h-6 w-18"
-    bind:checked={() => themeLight, setTheme} />
-  <Label for="theme-controller">
-    <SunIcon
-      class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90" />
-    <MoonIcon
-      class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0" />
-  </Label>
-</div>
+<ModeWatcher track={false} defaultMode={"dark"} />
+<ThemeSwitch />
 
-{@render children()}
+<!-- Main -->
+<main class="flex h-full w-full flex-col justify-start">
+  <!-- Mobile Sidebar -->
+  <div class="absolute top-0 left-0 h-full {sidebarMobile.visible ? '' : 'hidden'} bg-background">
+    <!-- <Sidebar.Provider bind:open={() => sidebarMobile, (newOpen) => (sidebarMobile = newOpen)}>
+      <AppSidebar bind:sidebarMobile />
+    </Sidebar.Provider> -->
+    <AppSidebar {openSidebar} />
+  </div>
+  <!--/Mobile Sidebar -->
+  <!-- Header 영역 -->
+  <header class="flex h-14 w-full items-center justify-between px-4">
+    <MenuLogoButton {openSidebar} />
+    <div class="flex-center">
+      <Popover.Root>
+        <Popover.Trigger
+          class={buttonVariants({
+            variant: "secondary",
+            class: "w-23 justify-start gap-1 rounded-full pl-2!",
+          })}>
+          <PlusIcon class="size-6" />만들기
+        </Popover.Trigger>
+        <Popover.Content class="w-50 px-0 py-2" align="start">
+          <Popover.Close class="w-full">
+            <a href="/upload" class="hover:bg-primary/10 flex items-center py-2 pl-3">
+              <SquarePlayIcon class="size-5" /> <span class="ml-4 text-sm">동영상 업로드</span>
+            </a>
+          </Popover.Close>
+          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
+            ><RadioIcon class="size-5" /><span class="ml-2">라이브 스트리밍 시작</span></Button>
+          <Button variant="secondary" class="hover:bg-primary/10 w-full justify-start rounded-none"
+            ><SquarePenIcon class="size-5" /><span class="ml-2">게시물 작성</span></Button>
+        </Popover.Content>
+      </Popover.Root>
+      <Button variant="ghost" class="mx-1 rounded-full p-2">
+        <iconify-icon icon="ion:notifications-outline" width="24" height="24" background="none"
+        ></iconify-icon>
+      </Button>
+      <div class="px-2">
+        <button class="size-8 rounded-full bg-slate-600 text-white" aria-label="avata">ME</button>
+      </div>
+    </div>
+  </header>
+  <!-- /Header -->
+  <!-- Contents -->
+  <div class="flex flex-1">
+    {#if (!sidebarDesktop.visible && !sidebarMobile.visible) || sidebarDesktop.windowWidth <= tabletWidth}
+      <!-- Sidebar (for only icons) -->
+      <div class="flex w-18 flex-col items-center p-1">
+        <!-- Home Button -->
+        <Button variant="ghost" class="flex-center h-18 w-16 flex-col gap-1.5 rounded-xl p-1">
+          <iconify-icon icon="entypo:home" width="24" height="24"></iconify-icon>
+          <span class="text-tiny">홈</span>
+        </Button>
+        <!-- /Home Button -->
+      </div>
+      <!-- /Sidebar (for only icons) -->
+    {/if}
+    {@render children()}
+  </div>
+  <!-- /Contents -->
+</main>
+<!-- /Main -->
