@@ -15,7 +15,7 @@
   </Sidebar.Root> -->
 <div class="flex w-50 flex-col px-4 py-2">
   <MenuLogoButton {...props} />
-  <div class="mt-2 flex w-full flex-col justify-start p-2">
+  <div class="mt-2 flex w-full flex-col justify-start px-3 py-2">
     <span>M Sidebar</span>
   </div>
 </div>

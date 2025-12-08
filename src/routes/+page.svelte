@@ -7,7 +7,7 @@
 <div class="flex flex-1">
   {#if sidebarDesktop.visible && sidebarDesktop.windowWidth > tabletWidth}
     <!-- Desktop Sidebar -->
-    <div class="flex w-50 flex-col justify-start px-4 py-2">
+    <div class="flex w-50 flex-col justify-start px-7 py-2">
       <span>D Sidebar</span>
     </div>
     <!-- /Desktop Sidebar -->
