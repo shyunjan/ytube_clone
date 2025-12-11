@@ -1,6 +1,6 @@
 <script lang="ts">
   import { sidebarDesktop } from "../universal-state.svelte.js";
-  import DtSidebar from "src/lib/components/ui/dt-sidebar.svelte";
+  import DtSidebar from "$lib/components/ui/dt-sidebar.svelte";
 
   const tabletWidth = 1280;
 </script>

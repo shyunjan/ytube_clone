@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { sidebarDesktop } from "src/universal-state.svelte";
+  import { sidebarDesktop } from "$/universal-state.svelte";
   import DtSidebar from "$lib/components/ui/dt-sidebar.svelte";
   const tabletWidth = 1280;
   let { children } = $props();
