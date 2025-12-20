@@ -33,8 +33,10 @@
   --text-tiny--line-height: 0.875rem;
   --text-tiny--letter-spacing: 0.125rem;
   --text-tiny--font-weight: 500;
-  --spacing-5\.5: 1.3rem;
-  --spacing-6\.5: 1.6rem;
+  --spacing-5\.5: 1.3rem; /* 20.8px */
+  --spacing-6\.5: 1.6rem; /* 25.6px */
+  --spacing-13: 3.25rem; /* 52px */
+  --spacing-18: 4.5rem; /* 72px */
 }
 
 :root {
